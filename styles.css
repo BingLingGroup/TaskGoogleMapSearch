@@ -1,0 +1,21 @@
+.input-box {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 15px;
+  margin: 2px;
+}
+
+.input-box-text {
+  box-sizing: border-box;
+  width: 200px;
+  height: 24px;
+  padding: 2px;
+}
+
+.button-box {
+  box-sizing: border-box;
+  width: 50px;
+  height: 24px;
+  padding: 2px;
+}

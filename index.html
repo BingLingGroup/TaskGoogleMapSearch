@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Task Google map search</title>
+    <link rel="stylesheet"
+        href="styles.css">
+</head>
+
+<body>
+    <h2>Google map - search</h2>
+    <iframe src="https://maps.google.com/maps?q=60.994762,25.525312&output=embed"
+        width="600"
+        height="450"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="strict-origin-when-cross-origin"
+        id="google-map"></iframe>
+
+    <div class="input-box">
+        <span id="street-span">Street</span>
+        <input type="text"
+            id="street-value"
+            class="input-box-text"
+            value="Mukkulankatu 19" />
+    </div>
+    <br>
+    <div class="input-box">
+        <span id="city-span">City&nbsp;&nbsp;&nbsp;</span>
+        <input type="text"
+            id="city-value"
+            class="input-box-text"
+            value="Lahti" />
+    </div>
+    <br>
+    <div class="input-box">
+        <button id="enter-button"
+            class="button-box">Search</button>
+    </div>
+    <script>
+        function changeIframeSrc(
+            event,
+            iframeID,
+            textID1,
+            textID2
+        ) {
+            if (event.key === "Enter" || event.type === "click") {
+                // Prevent the default behavior (like submitting a form prematurely)
+                event.preventDefault();
+                document.getElementById(iframeID).src = `https://maps.google.com/maps?q=${document.getElementById(textID1).value.replaceAll(" ", "+")}+${document.getElementById(textID2).value.replaceAll(" ", "+")}&output=embed`
+            }
+        }
+
+        document.getElementById("street-value").addEventListener("keydown", (event) => {
+            changeIframeSrc(
+                event = event,
+                iframeID = "google-map",
+                textID1 = "street-value",
+                textID2 = "city-value"
+            )
+        });
+
+        document.getElementById("city-value").addEventListener("keydown", (event) => {
+            changeIframeSrc(
+                event = event,
+                iframeID = "google-map",
+                textID1 = "street-value",
+                textID2 = "city-value"
+            )
+        });
+
+        document.getElementById("enter-button").addEventListener("click", (event) => {
+            changeIframeSrc(
+                event = event,
+                iframeID = "google-map",
+                textID1 = "street-value",
+                textID2 = "city-value"
+            )
+        });
+
+    </script>
+</body>
+
+</html>
